@@ -3,8 +3,8 @@ import "./App.css";
 import Recipe from "./Recipe";
 
 const App = () => {
-  const APP_ID = "89c55828";
-  const APP_KEY = "349a4b454c137d2bd6af9cabad90d1f3";
+  const APP_ID = process.env.REACT_APP_APP_ID;
+  const APP_KEY = process.env.REACT_APP_APP_KEY;
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("");
@@ -47,7 +47,7 @@ const App = () => {
       <div className="recipes">
         {recipes.map((recipe) => (
           <Recipe
-            key={recipe.recipe.label}
+            key={Math.random()}
             title={recipe.recipe.label}
             ingredients={recipe.recipe.ingredients}
             calories={recipe.recipe.calories}
